@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  quantidade_estoque: 1
+  quantidade_min: 1
+  preco_compra: 9.99
+  custo_medio: 9.99
+  produto_id: 1
+  fornecedor_id: 1
+
+two:
+  quantidade_estoque: 1
+  quantidade_min: 1
+  preco_compra: 9.99
+  custo_medio: 9.99
+  produto_id: 1
+  fornecedor_id: 1

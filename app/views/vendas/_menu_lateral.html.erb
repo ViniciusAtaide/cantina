@@ -1,0 +1,40 @@
+<aside class="sidebar col-md-2">
+<%= form_for(@venda) do |f| %>
+  <% if @venda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@venda.errors.count, "error") %> prohibited this venda from being saved:</h2>
+
+      <ul>
+      <% @venda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p id="notice" class="badge badge-info red"><%= notice %></p>
+
+  <div class="field">
+    <%= f.label :quantidade_venda %><br />
+    <%= f.number_field :quantidade_venda %>
+  </div>
+  <div class="field">
+    <%= f.label :valor_total %><br />
+    <%= f.text_field :valor_total %>
+  </div>
+  <div class="field">
+    <%= f.label "Consumidor:"%><br />
+    <%= f.collection_select  :consumidor_id, Consumidor.all, :id, :nome, :include_blank => 'Selecione' %>
+    
+  </div>
+  <div class="field">
+    <%= f.label "Produto:" %><br />
+    <%= f.collection_select  :produto_id, Produto.all, :id, :nome, :include_blank => 'Selecione' %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+</aside>

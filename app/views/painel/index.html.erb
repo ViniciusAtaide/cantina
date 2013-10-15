@@ -1,0 +1,59 @@
+			<div class="page-header">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<h1>Home</h1>
+			</div>
+			
+				</div>
+	</div>
+
+	        
+			<!-- Stats -->
+	
+
+	<!-- Atalhos -->
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-default shortcuts">
+				<div class="panel-heading">Acesso Rápido</div>
+				<div class="panel-body">
+
+				<%= link_to new_produto_path, :class => "shortcut", :title => "Adicionar Produto" do %>
+				<i class="glyphicon glyphicon-tower"></i>
+				<span class="shortcut-label">Adicionar Produto</span>
+				<% end %>
+
+				<%= link_to new_categoria_path, :class => "shortcut", :title => "Adicionar Categoria" do %>
+				<i class="glyphicon glyphicon-tower"></i>
+				<span class="shortcut-label">Adicionar Categoria</span>
+				<% end %>
+
+				<%= link_to new_consumidor_path, :class => "shortcut", :title => "Adicionar Consumidor" do %>
+				<i class="glyphicon glyphicon-tower"></i>
+				<span class="shortcut-label">Adicionar Consumidor</span>
+				<% end %>
+
+				<%= link_to new_fornecedor_path, :class => "shortcut", :title => "Adicionar Fornecedor" do %>
+				<i class="glyphicon glyphicon-tower"></i>
+				<span class="shortcut-label">Adicionar Fornecedor</span>
+				<% end %>
+
+				<%= link_to new_estoque_path, :class => "shortcut", :title => "Adicionar Estoque" do %>
+				<i class="glyphicon glyphicon-tower"></i>
+				<span class="shortcut-label">Adicionar Estoque</span>
+				<% end %>
+
+				
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default shortcuts">
+				<div class="panel-heading">Relatorios</div>
+				<div class="panel-body">
+					<div id="graph"></div>
+				</div>
+			</div>
+		</div>
+	</div>

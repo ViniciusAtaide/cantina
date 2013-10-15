@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  descricao: MyText
+  unidade_medida: MyString
+  preco_venda: 9.99
+
+two:
+  nome: MyString
+  descricao: MyText
+  unidade_medida: MyString
+  preco_venda: 9.99

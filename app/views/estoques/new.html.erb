@@ -1,0 +1,61 @@
+<%= form_for(@estoque) do |f| %>
+  <% if @estoque.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estoque.errors.count, "error") %> prohibited this estoque from being saved:</h2>
+
+      <ul>
+      <% @estoque.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="page-header">
+      <div class="row">
+          
+          <div class="col-md-6 col-sm-6">
+              <h1>Editar Estoque</h1>
+          </div>
+
+              <div class="col-md-3 col-sm-3">
+                <%= link_to 'Cancelar', estoques_path, :class => "btn btn-block btn-danger" %>
+              </div>
+
+              <div class="col-md-3 col-sm-3">
+                  <%= f.submit :class => "btn btn-block btn-success" %>
+              </div>
+          
+      </div>
+  </div>
+
+  <div class="form-group required">
+  <div class="field">
+    <%= f.label "Produto:" %><br />
+    <%= f.collection_select  :produto_id, Produto.all, :id, :nome, :class => "form-control" %>
+  </div>
+  <div class="form-group required">
+  <div class="field">
+    <%= f.label "Fornecedor:" %><br />
+    <%= f.collection_select  :fornecedor_id, Fornecedor.all, :id, :nome, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :quantidade_estoque %><br />
+    <%= f.number_field :quantidade_estoque, :class => "form-control" %>
+  </div>
+  <div class="form-group required">
+  <div class="field">
+    <%= f.label :quantidade_min %><br />
+    <%= f.number_field :quantidade_min, :class => "form-control" %>
+  </div>
+  <div class="form-group required">
+  <div class="field">
+    <%= f.label :preco_compra %><br />
+    <%= f.text_field :preco_compra, :class => "form-control" %>
+  </div>
+  <div class="form-group required">
+  <div class="field">
+    <%= f.label :custo_medio %><br />
+    <%= f.text_field :custo_medio, :class => "form-control" %>
+  </div>
+<% end %>

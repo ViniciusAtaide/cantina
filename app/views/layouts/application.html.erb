@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cantina</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	   <header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	        <div class="navbar-header">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                <span class="sr-only">Menu</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a href="/painel" class="navbar-brand" title="IntegraSystem">Cantina <b>Escolar</b></a>
+	        </div>
+	        <div class="collapse navbar-collapse">
+	            <ul class="nav navbar-nav navbar-right">
+	                <li>
+	                    <a href="/painel/profile" title="Olá, Luis">Olá, Luis</a>
+	                </li>
+	                <li>
+	                    <a href="/vendas" title="Ir para o site" target="_blank">Ir para Vendas</a>
+	                </li>
+	                <li>
+	                    <a href="/painel/logout" title="Sair"><span class="glyphicon glyphicon-off"></span></a>
+	                </li>
+	            </ul>
+	        </div>
+	    </header>
+		<aside class="sidebar col-md-2">
+			<nav id="sidebar-menu" role="complementary">
+				<ul>
+					<li class="active">
+						<a href="/painel" title="Home"><i class=""></i><span>Home</span></a>
+					</li>
+					<li>
+						<a href="/produtos" title="Produtos"><i class=""></i><span>Produtos</span></a>
+					</li>
+					<li>
+						<a href="/categoria" title="Categorias"><i class=""></i><span>Categorias</span></a>
+					</li>
+					<li>
+						<a href="/consumidors" title="Consumidores"><i class=""></i><span>Consumidores</span></a>
+					</li>
+					<li>
+						<a href="/fornecedors" title="Fornecedores"><i class=""></i><span>Fornecedores</span></a>
+					</li>
+					<li>
+						<a href="/estoques" title="Estoque"><i class=""></i><span>Estoque</span></a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+
+		<div class="content col-md-10">
+
+			<%= yield %>
+
+
+
+		</div>
+
+
+
+</body>
+</html>

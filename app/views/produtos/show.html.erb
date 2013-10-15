@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @produto.nome %>
+</p>
+
+<p>
+  <b>Imagem:</b>
+  <%= image_tag @produto.foto.url(:thumb) %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @produto.descricao %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @produto.categoria.nome %>
+</p>
+
+<p>
+  <b>Unidade medida:</b>
+  <%= @produto.unidade_medida %>
+</p>
+
+<p>
+  <b>Preco venda:</b>
+  <%= @produto.preco_venda %>
+</p>
+
+
+<%= link_to 'Edit', edit_produto_path(@produto) %> |
+<%= link_to 'Back', produtos_path %>

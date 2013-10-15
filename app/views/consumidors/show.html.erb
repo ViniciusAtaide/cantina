@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @consumidor.tipo %>
+</p>
+
+<p>
+  <b>Operacao:</b>
+  <%= @consumidor.operacao %>
+</p>
+
+<p>
+  <b>Valor recebido:</b>
+  <%= @consumidor.saldo %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @consumidor.nome %>
+</p>
+
+<p>
+  <b>Cpf:</b>
+  <%= @consumidor.cpf %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @consumidor.email %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%= @consumidor.telefone %>
+</p>
+
+<p>
+  <b>Observacao:</b>
+  <%= @consumidor.observacao %>
+</p>
+
+
+<%= link_to 'Edit', edit_consumidor_path(@consumidor) %> |
+<%= link_to 'Back', consumidors_path %>

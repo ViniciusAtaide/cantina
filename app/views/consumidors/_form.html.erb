@@ -1,0 +1,49 @@
+<%= form_for(@consumidor) do |f| %>
+  <% if @consumidor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consumidor.errors.count, "error") %> prohibited this consumidor from being saved:</h2>
+
+      <ul>
+      <% @consumidor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Tipo:" %><br />
+    <%= f.select :tipo, ['aluno', 'funcionario', 'professor'] %>
+  </div>
+  <div class="field">
+    <%= f.label "Operacao:" %><br />
+    <%= f.select :operacao, ['pre', 'pos', 'prepos'] %>
+  </div>
+  <div class="field">
+    <%= f.label "Valor Recebido" %><br />
+    <%= f.text_field :valor_recebido, :placehold => "0" %>
+  </div>
+  <div class="field">
+    <%= f.label "Nome:" %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label "Cpf:" %><br />
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label "Email:" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "Telefone:" %><br />
+    <%= f.text_field :telefone %>
+  </div>
+  <div class="field">
+    <%= f.label "Observacao:" %><br />
+    <%= f.text_area :observacao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

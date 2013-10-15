@@ -1,0 +1,38 @@
+<div class="page-header">
+    <div class="row">
+        
+        <div class="col-md-6 col-sm-6">
+            <h1>Categorias</h1>
+        </div>
+
+        <div class="col-md-3 col-sm-3 col-md-offset-3 col-sm-offset-3">
+            <%= link_to 'Adicionar Categoria', new_categoria_path, :class => "btn btn-block btn-success", :title => "Adicionar Categoria" %>
+        </div>
+        
+    </div>
+</div>
+
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<% @categoria.each do |categoria| %>
+<tbody>
+  <tr>
+    <td><%= categoria.nome %></td>
+    <td><%= link_to 'Show', categoria %></td>
+    <td><%= link_to 'Edit', edit_categoria_path(categoria) %></td>
+    <td><%= link_to 'Destroy', categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</tbody>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Categoria', new_categoria_path %>

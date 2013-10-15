@@ -1,0 +1,51 @@
+<div class="page-header">
+    <div class="row">
+        
+        <div class="col-md-6 col-sm-6">
+            <h1>Consumidores</h1>
+        </div>
+
+        <div class="col-md-3 col-sm-3 col-md-offset-3 col-sm-offset-3">
+            <%= link_to 'Adicionar Consumidor', new_consumidor_path, :class => "btn btn-block btn-success", :title => "Adicionar Consumidor" %>
+        </div>
+        
+    </div>
+</div>
+
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th>Tipo</th>
+    <th>Operacao</th>
+    <th>Saldo</th>
+    <th>Nome</th>
+    <th>Cpf</th>
+    <th>Email</th>
+    <th>Telefone</th>
+    <th>Observacao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+
+<% @consumidors.each do |consumidor| %>
+  <tbody>
+    <td><%= consumidor.tipo %></td>
+    <td><%= consumidor.operacao %></td>
+    <td>
+    <span class="badge badge-info azul">
+        <%= number_to_currency(consumidor.saldo, :unit => "R$") %>
+    </span>
+    </td>
+    <td><%= consumidor.nome %></td>
+    <td><%= consumidor.cpf %></td>
+    <td><%= consumidor.email %></td>
+    <td><%= consumidor.telefone %></td>
+    <td><%= consumidor.observacao %></td>
+    <td><%= link_to 'Show', consumidor %></td>
+    <td><%= link_to 'Edit', edit_consumidor_path(consumidor) %></td>
+    <td><%= link_to 'Destroy', consumidor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tbody>
+<% end %>
+</table>

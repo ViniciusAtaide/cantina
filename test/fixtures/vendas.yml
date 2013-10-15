@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  quantidade_venda: 1
+  valor_total: 9.99
+  consumidor_id: 1
+  produto_id: 1
+
+two:
+  quantidade_venda: 1
+  valor_total: 9.99
+  consumidor_id: 1
+  produto_id: 1
