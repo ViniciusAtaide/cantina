@@ -125,23 +125,6 @@ class VendasController < ApplicationController
     end
   end
 
-  def add_compras
-    produto = Produto.find(params[:id]) 
-    @compras = find_compras 
-    @compras.add_produto(produto) 
-    redirect_to(:action => @mostrar_compras) 
-  end
-
-  def mostrar_compras
-    @compra = find_compras
-    @items = @compra.items
-  end 
-
-  private 
- def find_compras 
- session[:compra] ||= Compra.new 
- end 
-
 
 
 

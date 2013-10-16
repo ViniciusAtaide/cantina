@@ -2,9 +2,6 @@ Cantina::Application.routes.draw do
 
   resources :categoria
 
-  match '/add_compras' => 'vendas#add_compras'
-  match '/mostrar_compras' => 'vendas#mostrar_compras'
-
   resources :vendas
 
   resources :painel
