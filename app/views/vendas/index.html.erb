@@ -1,8 +1,66 @@
-<h1>Listing vendas</h1>
+<h1>Página de Vendas</h1>
 
-<p> Seu carrinho contÈm <%= @items.size %> itens. </p> 
 
-<table>
+<h3>Listagem do Carrinho</h3>
+<%=link_to 'Limpar Carrinho', vendas_path(:op => "clean") %>
+<table border="1px">
+  <tr>
+    <th>Imagem</th>
+    <th>Produto</th>
+    <th>Valor do Produto</th>
+    <th>qtd</th>
+    <th>Valor Total</th>
+  </tr>
+
+  <% @prodCart.each do |p| %>
+  <tr>
+    
+    <td><%= image_tag p.foto.url(:thumb) %></td>
+    <td><%= p.nome %></td>
+    <td><%= p.preco_venda %></td>
+    <td><%= session[:cart][p.id.to_s] %></td>
+    <td><%= session[:cart][p.id.to_s].to_i * p.preco_venda %></td>
+    
+  </tr>
+  <% end %>
+  <tr>
+    
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total</td>
+    <td><%= @totalCart %></td>
+    
+  </tr>
+</table>
+<%= select("get", "person_id", Consumidor.all.collect {|p| [ p.nome, p.id ] }, {include_blank: 'Selecione o consumidor...'}, :id => 'consumidor') %>
+<%=link_to 'Concluir Venda', vendas_path(:op => "finalizar"), :id => 'finalizar' %>
+
+<h3>Listagem de Produtos</h3>
+<table border="1px">
+  <tr>
+    <th>Produto</th>
+    <th>Valor do Produto</th>
+    <th>qtd</th>
+    <th>Foto</th>
+    <th></th>
+  </tr>
+
+  <% Produto.all.each do |p| %>
+  <tr>
+    
+    <td><%= p.nome %></td>
+    <td><%= p.preco_venda %></td>
+    <td>1</td>
+    <td><%= image_tag p.foto.url(:thumb) %></td>
+    <td> <%=link_to '+ carrinho', vendas_path(:produto => p.id, :op => "cart") %></td>
+    
+  </tr>
+  <% end %>
+</table>
+
+<h3>Resumo de Vendas</h3>
+<table border="1px">
   <tr>
     <th>Quantidade venda</th>
     <th>Valor total</th>

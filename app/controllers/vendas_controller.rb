@@ -5,8 +5,88 @@ class VendasController < ApplicationController
 
   layout "venda"
 
+  before_filter :load_cart
+
+  def load_cart
+    @cart = session[:cart]
+    @produtoId = params[:produto]
+    @prodCart = []
+    @cart.each do |key, value|
+      @prodCart = Produto.where(:id => @cart.keys) 
+    end
+    @totalCart = 0
+    @prodCart.each do |p|
+      @totalCart += p.preco_venda * @cart[p.id.to_s].to_i
+    end
+  end
+
   def index
     @vendas = Venda.all
+
+    unless params[:op].blank?
+      unless params[:op] != 'cart'
+
+        if @cart[@produtoId].blank?
+          @cart[@produtoId] = 1
+        else
+          @cart[@produtoId] = session[:cart][@produtoId] + 1
+        end
+
+      end
+
+      unless params[:op] != 'finalizar'
+        @consumidor = Consumidor.find(params[:consumidor]);
+
+        @prodCart.each do |p|
+          venda = Venda.new
+          venda.produto = p
+          venda.quantidade_venda = @cart[p.id.to_s].to_i
+          venda.consumidor = @consumidor
+          venda.valor_total = venda.quantidade_venda * p.preco_venda
+
+          venda.save
+
+          @estoque = p.estoque
+          @estoque.quantidade_estoque -= venda.quantidade_venda
+
+          @venda = venda
+
+
+        end
+
+        
+        case @consumidor.operacao
+          when "pre" 
+            if @consumidor.saldo > @venda.valor_total
+              then
+                @consumidor.saldo -= @venda.valor_total
+                @estoque.update_attributes(:quantidade_estoque => @quantidade_final, :produto_id => @estoque.produto_id)
+            else
+              format.html { redirect_to :back, notice: 'Saldo Insuficiente' }
+            end  
+          when "pos" 
+            then 
+             @consumidor.saldo -= @venda.valor_total
+             @estoque.update_attributes(:quantidade_estoque => @quantidade_final, :produto_id => @estoque.produto_id)
+          when "prepos" 
+            then 
+             @consumidor.saldo -= @venda.valor_total
+             @estoque.update_attributes(:quantidade_estoque => @quantidade_final, :produto_id => @estoque.produto_id) 
+        end
+
+        @consumidor.save   
+
+        #se consumidor for nulo a venda sera considerada avista (atualiza estoque)
+        if @consumidor == nil
+          @estoque.update_attributes(:quantidade_estoque => @quantidade_final, :produto_id => @estoque.produto_id)
+        end
+
+      session[:cart] = {}
+
+      end
+
+      return redirect_to vendas_path
+    end
 
     respond_to do |format|
       format.html # index.html.erb

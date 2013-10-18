@@ -15,3 +15,19 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap-select
+jQuery(document).ready(function() {
+
+	jQuery('#finalizar').click(function() {
+		link = $('#finalizar').attr('href');
+		if($('#consumidor').val() == ''){
+			alert('consumidor não pode ficar em branco');
+			return false;
+		}else{
+			link = link+'&consumidor='+$('#consumidor').val();
+			$('#finalizar').attr('href', link);
+			alert($('#finalizar').attr('href'));
+		}
+		return true;
+	});
+
+});
