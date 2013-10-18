@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require turbolinks
 //= require_tree .
 //= require bootstrap-select
 jQuery(document).ready(function() {
@@ -20,8 +21,10 @@ jQuery(document).ready(function() {
 	jQuery('#finalizar').click(function() {
 		link = $('#finalizar').attr('href');
 		if($('#consumidor').val() == ''){
-			alert('consumidor não pode ficar em branco');
-			return false;
+			link = link+'&consumidor='+"2";
+			$('#finalizar').attr('href', link);
+			alert($('#finalizar').attr('href'));
+			return true;
 		}else{
 			link = link+'&consumidor='+$('#consumidor').val();
 			$('#finalizar').attr('href', link);

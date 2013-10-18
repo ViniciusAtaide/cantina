@@ -1,64 +1,91 @@
-<h1>Página de Vendas</h1>
 
+<aside class="sidebar">
+  
 
-<h3>Listagem do Carrinho</h3>
-<%=link_to 'Limpar Carrinho', vendas_path(:op => "clean") %>
-<table border="1px">
+<h3 class="center">Lista de Compras</h3>
+<table class="table table-hover">
+<thead>
   <tr>
-    <th>Imagem</th>
+  <th></th>
     <th>Produto</th>
-    <th>Valor do Produto</th>
-    <th>qtd</th>
-    <th>Valor Total</th>
+    <th>Valor</th>
+    <th>Qtd</th>
+    <th>Sub-Total</th>
   </tr>
-
+</thead>
+<a href="/vendas?op=cartmenos&amp;produto=2">
+    </a>
   <% @prodCart.each do |p| %>
-  <tr>
-    
-    <td><%= image_tag p.foto.url(:thumb) %></td>
+<tbody>
+    <td><a href="/vendas?op=cartmenos&produto=<%= p.id %>">
+    <%= image_tag "x.gif" %>
+    </a></td>
     <td><%= p.nome %></td>
-    <td><%= p.preco_venda %></td>
+    <td><%= number_to_currency(p.preco_venda, :unit => "") %></td>
     <td><%= session[:cart][p.id.to_s] %></td>
-    <td><%= session[:cart][p.id.to_s].to_i * p.preco_venda %></td>
-    
-  </tr>
+    <td><%= number_to_currency(session[:cart][p.id.to_s].to_i * p.preco_venda, :unit => "R$") %></td>
+</tbody>
   <% end %>
-  <tr>
-    
+  <tr class="cinzazul">
     <td></td>
     <td></td>
     <td></td>
     <td>Total</td>
-    <td><%= @totalCart %></td>
+    <td ><%= number_to_currency(@totalCart, :unit => "R$") %></td>
     
   </tr>
 </table>
-<%= select("get", "person_id", Consumidor.all.collect {|p| [ p.nome, p.id ] }, {include_blank: 'Selecione o consumidor...'}, :id => 'consumidor') %>
-<%=link_to 'Concluir Venda', vendas_path(:op => "finalizar"), :id => 'finalizar' %>
+  
+  <div class="limpar"><%=link_to 'Limpar Compras', vendas_path(:op => "clean") %></div>
 
-<h3>Listagem de Produtos</h3>
-<table border="1px">
-  <tr>
-    <th>Produto</th>
-    <th>Valor do Produto</th>
-    <th>qtd</th>
-    <th>Foto</th>
-    <th></th>
-  </tr>
+<%= select("get", "person_id", Consumidor.all.collect {|p| [ p.nome, p.id ] }, {include_blank: 'Selecione o consumidor...'}, :id => 'consumidor', :class => "consumidor-select", 'data-no-turbolink' => '') %>
+<br>
 
-  <% Produto.all.each do |p| %>
-  <tr>
+<%=link_to 'Concluir Venda', vendas_path(:op => "finalizar"), :id => 'finalizar', :class => "btn btn-block btn-success", 'data-no-turbolink' => "" %>
+
+  
+</aside>
+
+<div id="conteudo">
+
+
+<h1>Página de Vendas</h1>
+
+
+
+  <div class="row">
+    <div class="col-md">
+      <div class="panel panel-default shortcuts">
+        <div class="panel-heading">Produtos</div>
+        <div class="panel-body">
+
+  <% Produto.all.each do |p| %> 
     
-    <td><%= p.nome %></td>
-    <td><%= p.preco_venda %></td>
-    <td>1</td>
-    <td><%= image_tag p.foto.url(:thumb) %></td>
-    <td> <%=link_to '+ carrinho', vendas_path(:produto => p.id, :op => "cart") %></td>
-    
-  </tr>
+    <%=link_to vendas_path(:produto => p.id, :op => "cart"), :class => "produtos-carrinho" do %>
+    <i><%= image_tag p.foto.url(:thumb) %></i>
+    <span class="shortcut-label"><%= p.nome %></span>
+    <% end %>
+
+        
   <% end %>
-</table>
 
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if false %>
 <h3>Resumo de Vendas</h3>
 <table border="1px">
   <tr>
@@ -83,7 +110,7 @@
   </tr>
 <% end %>
 </table>
-
+<% end %>
 <br />
 
-<%= link_to 'New Venda', new_venda_path %>
+</div>

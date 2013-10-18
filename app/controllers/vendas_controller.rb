@@ -34,6 +34,16 @@ class VendasController < ApplicationController
 
       end
 
+      unless params[:op] != 'cartmenos'
+
+        if @cart[@produtoId].blank?
+          @cart[@produtoId] = 1
+        else
+          @cart[@produtoId] = session[:cart][@produtoId] - 1
+        end
+
+      end
+
       unless params[:op] != 'finalizar'
         @consumidor = Consumidor.find(params[:consumidor]);
 
@@ -47,7 +57,7 @@ class VendasController < ApplicationController
           venda.save
 
           @estoque = p.estoque
-          @estoque.quantidade_estoque -= venda.quantidade_venda
+          @quantidade_final = @estoque.quantidade_estoque - venda.quantidade_venda
 
           @venda = venda
 
@@ -62,7 +72,9 @@ class VendasController < ApplicationController
                 @consumidor.saldo -= @venda.valor_total
                 @estoque.update_attributes(:quantidade_estoque => @quantidade_final, :produto_id => @estoque.produto_id)
             else
-              format.html { redirect_to :back, notice: 'Saldo Insuficiente' }
+              respond_to do |format|
+                format.html { redirect_to :back, notice: 'Saldo Insuficiente' }
+              end
             end  
           when "pos" 
             then 

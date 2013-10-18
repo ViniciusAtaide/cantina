@@ -283,7 +283,48 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
  	background-color: #468847;
  }
 
+ .cinzazul {
+ 	background-color:#F5F5F5;
+ }
+
  .red {
  	background-color: #B94A48;
  	color:white;
+ }
+
+ .center {
+ 	text-align: center;
+ }
+
+ .produtos-carrinho {
+ 	text-align: center;
+ 	min-width: 146px;
+ 	height: 160px;
+ 	float: left;
+ 	display: inline-block;
+ 	padding: 22px;
+ 	margin: 0 5px 1em;
+ 	vertical-align: top;
+ 	border: 1px solid #ddd;
+ 	box-sizing: border-box;
+ 	-webkit-border-radius: 5px;
+ 	-moz-border-radius: 5px;
+ 	border-radius: 5px;
+ }
+
+ .col-md {
+ 	margin-left: 20px;
+ 	width: 100%;
+ }
+
+ .limpar {
+ 	position: relative;
+ 	bottom: 48px;
+ 	left: 10px;
+ }
+
+ .consumidor-select {
+ 	position: relative;
+ 	bottom: 20px;
+ 	left: 45px;
  }
