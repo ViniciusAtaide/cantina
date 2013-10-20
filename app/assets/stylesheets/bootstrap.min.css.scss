@@ -296,21 +296,76 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
  	text-align: center;
  }
 
+.black-hover {
+
+	text-align: center;
+	min-width: 146px;
+	height: 160px;
+	position: relative;
+	float: left;
+	display: inline-block;
+	padding: 22px;
+	margin: 0 5px 1em;
+	vertical-align: top;
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	.black {
+		position:absolute;
+		top:0;
+		left:0;
+		min-width: 146px;
+		height: 160px;
+		display: block;
+		opacity: 1;
+
+	}
+
  .produtos-carrinho {
- 	text-align: center;
- 	min-width: 146px;
- 	height: 160px;
- 	float: left;
- 	display: inline-block;
- 	padding: 22px;
- 	margin: 0 5px 1em;
- 	vertical-align: top;
- 	border: 1px solid #ddd;
- 	box-sizing: border-box;
- 	-webkit-border-radius: 5px;
- 	-moz-border-radius: 5px;
- 	border-radius: 5px;
- }
+	min-width: 146px;
+	height: 160px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: 200ms;
+	-moz-transition-duration: 200ms;
+	-o-transition-duration: 200ms;
+	transition-duration: 200ms;
+	-webkit-transition-timing-function: ease;
+	-moz-transition-timing-function: ease;
+	-o-transition-timing-function: ease;
+	transition-timing-function: ease;
+
+	&:hover {
+		background-color: #b2b2b2;
+		opacity: 0.5;
+	}
+
+	i {
+		position: relative;
+		top: 30px;
+	}
+
+	span {
+		position: absolute;
+		top: 0;
+		left: 40px;
+	}
+}
+
+}
 
  .col-md {
  	margin-left: 20px;
@@ -327,4 +382,10 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
  	position: relative;
  	bottom: 20px;
  	left: 45px;
+ }
+
+ .tirar-compras {
+ 	width: 20px;
+ 	height: 24px;
+ 	display: block;
  }

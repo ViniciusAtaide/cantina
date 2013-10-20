@@ -44,7 +44,7 @@ class FornecedorsController < ApplicationController
 
     respond_to do |format|
       if @fornecedor.save
-        format.html { redirect_to @fornecedor, notice: 'Fornecedor was successfully created.' }
+        format.html { redirect_to action: 'index', notice: 'Fornecedor was successfully created.' }
         format.json { render json: @fornecedor, status: :created, location: @fornecedor }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class FornecedorsController < ApplicationController
 
     respond_to do |format|
       if @fornecedor.update_attributes(params[:fornecedor])
-        format.html { redirect_to @fornecedor, notice: 'Fornecedor was successfully updated.' }
+        format.html { redirect_to action: 'index', notice: 'Fornecedor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

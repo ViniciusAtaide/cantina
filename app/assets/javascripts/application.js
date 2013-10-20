@@ -16,21 +16,53 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-select
-jQuery(document).ready(function() {
 
-	jQuery('#finalizar').click(function() {
+
+
+	ready = jQuery('#finalizar').click(function() {
+		
 		link = $('#finalizar').attr('href');
 		if($('#consumidor').val() == ''){
 			link = link+'&consumidor='+"2";
 			$('#finalizar').attr('href', link);
 			alert($('#finalizar').attr('href'));
+
 			return true;
+
+
 		}else{
 			link = link+'&consumidor='+$('#consumidor').val();
 			$('#finalizar').attr('href', link);
 			alert($('#finalizar').attr('href'));
 		}
+
+		return true;
+	});
+
+
+/*
+jQuery(document).ready(function() {
+
+	jQuery('#finalizar').click(function(event) {
+		event.preventDefault();
+		link = $('#finalizar').attr('href');
+		if($('#consumidor').val() == ''){
+			link = link+'&consumidor='+"2";
+			$('#finalizar').attr('href', link);
+			alert($('#finalizar').attr('href'));
+
+			return true;
+
+
+		}else{
+			event.preventDefault();
+			link = link+'&consumidor='+$('#consumidor').val();
+			$('#finalizar').attr('href', link);
+			alert($('#finalizar').attr('href'));
+		}
+
 		return true;
 	});
 
 });
+*/

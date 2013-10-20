@@ -23,6 +23,12 @@ class VendasController < ApplicationController
   def index
     @vendas = Venda.all
 
+     if !params[:categoria_id] 
+        @produtos = Produtos.all 
+      else 
+        @produtos = Produtos.all(:conditions => ["categoria_id = ?",params[:categoria_id]]) 
+      end 
+
     unless params[:op].blank?
       unless params[:op] != 'cart'
 
@@ -97,7 +103,7 @@ class VendasController < ApplicationController
 
       end
 
-      return redirect_to vendas_path
+      return redirect_to :back
     end
 
     respond_to do |format|

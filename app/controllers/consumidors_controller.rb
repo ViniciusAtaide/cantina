@@ -44,7 +44,7 @@ class ConsumidorsController < ApplicationController
 
     respond_to do |format|
       if @consumidor.save
-        format.html { redirect_to @consumidor, notice: 'Consumidor was successfully created.' }
+        format.html { redirect_to action: 'index', notice: 'Consumidor was successfully created.' }
         format.json { render json: @consumidor, status: :created, location: @consumidor }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class ConsumidorsController < ApplicationController
 
     respond_to do |format|
       if @consumidor.update_attributes(params[:consumidor])
-        format.html { redirect_to @consumidor, notice: 'Consumidor was successfully updated.' }
+        format.html { redirect_to action: 'index', notice: 'Consumidor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
