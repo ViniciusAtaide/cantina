@@ -25,7 +25,7 @@
             </div>
 
             <div class="col-md-3 col-sm-3">
-                <%= f.submit :class => "btn btn-block btn-success" %>
+                <%= f.submit :class => "btn btn-block btn-success", "data-no-turbolink" => "" %>
             </div>
         
     </div>
@@ -36,11 +36,12 @@
     <%= f.text_field :nome, :class => "form-control" %>
   </div>
 
+  <% if false %>
   <div class="form-group required">
     <%= f.label "Imagem:" %><br />
     <%= f.file_field :foto %>
-    
   </div>
+  <% end %>
 
   <div class="form-group required">
     <%= f.label :descricao %><br />

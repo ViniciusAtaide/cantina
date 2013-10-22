@@ -16,53 +16,56 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-select
-
-
-
-	ready = jQuery('#finalizar').click(function() {
-		
-		link = $('#finalizar').attr('href');
-		if($('#consumidor').val() == ''){
-			link = link+'&consumidor='+"2";
-			$('#finalizar').attr('href', link);
-			alert($('#finalizar').attr('href'));
-
-			return true;
-
-
-		}else{
-			link = link+'&consumidor='+$('#consumidor').val();
-			$('#finalizar').attr('href', link);
-			alert($('#finalizar').attr('href'));
-		}
-
-		return true;
-	});
-
-
 /*
-jQuery(document).ready(function() {
+$(window).load(function() {
+ 
+jQuery('#finalizar').click(function() {	
+	alert('ói');
+	link = $('#finalizar').attr('href');
+	if($('#consumidor').val() == ''){
+		link = link+'&consumidor='+"1";
+		$('#finalizar').attr('href', link);
+		alert($('#finalizar').attr('href'));
+		
+		return true;
+	}else{
+		link = link+'&consumidor='+$('#consumidor').val();
+		$('#finalizar').attr('href', link);
+		alert($('#finalizar').attr('href'));
+	}
 
-	jQuery('#finalizar').click(function(event) {
-		event.preventDefault();
+	return true;
+});
+
+});
+*/
+
+
+
+jQuery(document).ready(function() {
+	
+	function imprimir() {
+	w = window.open("/teste.txt");
+	w.print();
+	}
+	
+	jQuery('#finalizar').click(function() {
 		link = $('#finalizar').attr('href');
 		if($('#consumidor').val() == ''){
-			link = link+'&consumidor='+"2";
+			link = link+'&consumidor='+"1";
 			$('#finalizar').attr('href', link);
-			alert($('#finalizar').attr('href'));
+			//alert($('#finalizar').attr('href'));
 
 			return true;
 
 
 		}else{
-			event.preventDefault();
 			link = link+'&consumidor='+$('#consumidor').val();
 			$('#finalizar').attr('href', link);
-			alert($('#finalizar').attr('href'));
+			//alert($('#finalizar').attr('href'));
 		}
 
 		return true;
 	});
 
 });
-*/

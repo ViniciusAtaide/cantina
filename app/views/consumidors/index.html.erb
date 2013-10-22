@@ -23,9 +23,7 @@
     <th>Email</th>
     <th>Telefone</th>
     <th>Observacao</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Editar</th>
   </tr>
 </thead>
 
@@ -43,9 +41,9 @@
     <td><%= consumidor.email %></td>
     <td><%= consumidor.telefone %></td>
     <td><%= consumidor.observacao %></td>
-    <td><%= link_to 'Show', consumidor %></td>
-    <td><%= link_to 'Edit', edit_consumidor_path(consumidor) %></td>
-    <td><%= link_to 'Destroy', consumidor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <td><%= link_to '', edit_consumidor_path(consumidor), :class => "btn btn-default btn-sm glyphicon glyphicon-pencil" %></td>
+
   </tbody>
 <% end %>
 </table>

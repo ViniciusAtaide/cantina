@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def create_session
 
+    #session[:cart] = {}
   	session[:cart] ||= {}
 
   	unless params[:op].blank?

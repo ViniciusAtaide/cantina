@@ -8,7 +8,7 @@ class Produto < ActiveRecord::Base
   has_attached_file :foto, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
   def self.mostrar_produtos
-  	find(:all, :order => "nome")
+  	find(:all, :order => "categoria_id")
   end
 
 end

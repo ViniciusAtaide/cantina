@@ -16,21 +16,23 @@
 <thead>
   <tr>
     <th>Nome</th>
+    <% if false %>
     <th style="text-align:center;">Imagem</th>
+    <% end %>
     <th >Descricao</th>
     <th>Categoria</th>
     <th>Unidade medida</th>
     <th>Preco venda</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Editar</th>
   </tr>
 </thead>
 
 <% @produtos.each do |produto| %>
 <tbody>
     <td><%= produto.nome %></td>
+    <% if false %>
     <td style="text-align:center;"><%= image_tag produto.foto.url(:thumb) %></td>
+    <% end %>
     <td ><%= produto.descricao %></td>
     <td><%= produto.categoria.nome %></td>
     <td><%= produto.unidade_medida %> </td>
@@ -40,9 +42,8 @@
             <%= number_to_currency(produto.preco_venda, :unit => "R$")  %>
         </span>
     </td>
-    <td><%= link_to 'Show', produto %></td>
-    <td><%= link_to 'Edit', edit_produto_path(produto) %></td>
-    <td><%= link_to 'Destroy', produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '', edit_produto_path(produto), :class => "btn btn-default btn-sm glyphicon glyphicon-pencil" %></td>
+
 </tbody>
 <% end %>
 </table>

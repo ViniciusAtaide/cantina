@@ -1,5 +1,15 @@
+<style>
+@media print
+  {
+  #conteudo {
+    display: none;
+  }
+  }
+</style>
 
-<aside class="sidebar">
+<div class="centraliza">
+
+<aside class="sidebarvenda">
   
 
 <h3 class="center">Lista de Compras</h3>
@@ -14,6 +24,7 @@
   </tr>
 </thead>
 
+
   <% @prodCart.each do |p| %>
 <tbody>
     <td><a class="tirar-compras" href="/vendas?op=cartmenos&produto=<%= p.id %>">
@@ -24,7 +35,18 @@
     <td><%= session[:cart][p.id.to_s] %></td>
     <td><%= number_to_currency(session[:cart][p.id.to_s].to_i * p.preco_venda, :unit => "R$") %></td>
 </tbody>
+
+  <% File.open("public/teste.txt", "a+") do |f|
+
+  linha2 = p.nome + "    " + number_to_currency(p.preco_venda, :unit => "") + "\n"
+
+  f << linha2
+
+end
+ %>
+
   <% end %>
+
   <tr class="cinzazul">
     <td></td>
     <td></td>
@@ -41,7 +63,7 @@
 </div>
 <br>
 
-<%=link_to 'Concluir Venda', vendas_path(:op => "finalizar"), :id => 'finalizar', :class => "btn btn-block btn-success", 'data-no-turbolink' => "" %>
+<%=link_to 'Concluir Venda', vendas_path(:op => "finalizar"), :id => 'finalizar', :class => "btn btn-block btn-success", 'data-no-turbolink' => "", :onclick => "writetofile()" %>
 
   
 </aside>
@@ -59,18 +81,21 @@
         <div class="panel-heading">Produtos</div>
         <div class="panel-body">
 
-  <% Produto.all.each do |p| %> 
-  
-    <div class="black-hover">
-    <div class="black">
-      <%=link_to vendas_path(:produto => p.id, :op => "cart"), :class => "produtos-carrinho" do %>
-      <span class="shortcut-label"><%= p.nome %></span>
-    </div>
-    </div>
-    <% end %>
-
-        
-  <% end %>
+        <% Categoria.all.each do |c| %> 
+        <div class="categorias">
+          <span class="cat-nome"><%= c.nome %></span>
+            <% c.produtos.each do |p| %> 
+              <div class="black-hover">
+              <div class="black">
+                <%=link_to vendas_path(:produto => p.id, :op => "cart"), :class => "produtos-carrinho" do %>
+                <span class="shortcut-label"><%= p.nome %></span>
+              </div>
+              </div>
+                <% end %>
+            <% end %>
+              <br>
+        </div>
+        <% end %>
 
         </div>
       </div>
@@ -116,4 +141,5 @@
 <% end %>
 <br />
 
+</div>
 </div>

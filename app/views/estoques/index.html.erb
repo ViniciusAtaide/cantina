@@ -2,11 +2,11 @@
     <div class="row">
         
         <div class="col-md-6 col-sm-6">
-            <h1>Estoque</h1>
+            <h1>Entrada de Produtos</h1>
         </div>
 
         <div class="col-md-3 col-sm-3 col-md-offset-3 col-sm-offset-3">
-            <%= link_to 'Adicionar Estoque', new_estoque_path, :class => "btn btn-block btn-success", :title => "Adicionar Estoque" %>
+            <%= link_to 'Adicionar', new_estoque_path, :class => "btn btn-block btn-success", :title => "Adicionar" %>
         </div>
         
     </div>
@@ -20,9 +20,7 @@
     <th>Preco compra</th>
     <th>Produto</th>
     <th>Fornecedor</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Editar</th>
   </tr>
 </thead>
 
@@ -33,9 +31,7 @@
     <td><%= estoque.preco_compra %></td>
     <td><%= estoque.produto.nome %></td>
     <td><%= estoque.fornecedor.nome %></td>
-    <td><%= link_to 'Show', estoque %></td>
-    <td><%= link_to 'Edit', edit_estoque_path(estoque) %></td>
-    <td><%= link_to 'Destroy', estoque, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '', edit_estoque_path(estoque), :class => "btn btn-default btn-sm glyphicon glyphicon-pencil" %></td>
     <tbody>
 <% end %>
 </table>

@@ -36,10 +36,13 @@
     <%= f.text_field :nome, :class => "form-control" %>
   </div>
 
+  <% if false %>
   <div class="form-group required">
     <%= f.label "Imagem:" %><br />
     <%= f.file_field :foto %>
   </div>
+  <% end %>
+
 
   <div class="form-group required">
     <%= f.label :descricao %><br />

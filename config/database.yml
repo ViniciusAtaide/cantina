@@ -34,8 +34,22 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: cantina_production
+  database: cantina_development
   pool: 5
   username: root
-  password:
+  password: root
   socket: /var/run/mysqld/mysqld.sock
+  # SQLite version 3.x
+  #   gem install sqlite3
+
+#  development:
+#    adapter: sqlite3
+#    database: db/development.sqlite3
+#    pool: 5
+#    timeout: 5000
+
+#  production:
+#    adapter: sqlite3
+#    database: db/production.sqlite3
+#    pool: 5
+#    timeout: 5000

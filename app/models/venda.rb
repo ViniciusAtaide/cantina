@@ -6,5 +6,12 @@ class Venda < ActiveRecord::Base
   belongs_to :consumidor
   has_many :produtos
   has_one :consumidors
+
+  def cria_txt
+  	nome_arquivo = RAILS_ROOT + "/arquivo.txt"
+  	arquivo = File.open(nome_arquivo, "wb")
+  	arquivo.puts 'nome: Paulo'
+  	arquivo.close
+  end
   
 end

@@ -287,6 +287,10 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
  	background-color:#F5F5F5;
  }
 
+ h1 {
+ 	color: #006ab3;
+ }
+
  .red {
  	background-color: #B94A48;
  	color:white;
@@ -298,9 +302,10 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
 
 .black-hover {
 
+	background: beige;
 	text-align: center;
 	min-width: 146px;
-	height: 160px;
+	height: 80px;
 	position: relative;
 	float: left;
 	display: inline-block;
@@ -313,12 +318,21 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 
+	&:hover {
+		.produtos-carrinho {
+
+			span {
+				color: black;
+			}
+		}
+	}
+
 	.black {
 		position:absolute;
 		top:0;
 		left:0;
 		min-width: 146px;
-		height: 160px;
+		height: 80px;
 		display: block;
 		opacity: 1;
 
@@ -326,7 +340,7 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
 
  .produtos-carrinho {
 	min-width: 146px;
-	height: 160px;
+	height: 80px;
 	display: block;
 	position: absolute;
 	top: 0;
@@ -351,6 +365,7 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
 	&:hover {
 		background-color: #b2b2b2;
 		opacity: 0.5;
+
 	}
 
 	i {
@@ -359,9 +374,11 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eeeeee;}
 	}
 
 	span {
-		position: absolute;
-		top: 0;
-		left: 40px;
+		text-align: center;
+		text-transform: uppercase;
+		vertical-align: middle;
+		padding-top: 30px;
+		color: gray;
 	}
 }
 

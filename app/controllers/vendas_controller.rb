@@ -21,13 +21,11 @@ class VendasController < ApplicationController
   end
 
   def index
+
+
     @vendas = Venda.all
 
-     if !params[:categoria_id] 
-        @produtos = Produtos.all 
-      else 
-        @produtos = Produtos.all(:conditions => ["categoria_id = ?",params[:categoria_id]]) 
-      end 
+    @categorias = Categoria.all
 
     unless params[:op].blank?
       unless params[:op] != 'cart'
@@ -46,12 +44,13 @@ class VendasController < ApplicationController
           @cart[@produtoId] = 1
         else
           @cart[@produtoId] = session[:cart][@produtoId] - 1
+          @cart.delete_if{|key,value| value == 0}
         end
 
       end
 
       unless params[:op] != 'finalizar'
-        @consumidor = Consumidor.find(params[:consumidor]);
+        @consumidor = Consumidor.find(params[:consumidor])
 
         @prodCart.each do |p|
           venda = Venda.new

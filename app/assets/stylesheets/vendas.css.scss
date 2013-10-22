@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #conteudo {
-	width: 960px;
+	width: 648px;
 	float: left;
 	background: white;
 	padding: 10px;
@@ -15,6 +15,27 @@
 	min-height: 100%;
 }
 
+.sidebarvenda {
+	float: left;
+	padding: 10px;
+	background: #ECF0F1;
+	min-height: 1000px;
+	min-width: 22.666667%;
+}
+
 body {
 	background: white;
+}
+
+.categorias {
+	float:left;
+	width: 100%;
+
+	.cat-nome {
+		font-size: 20px;
+		text-transform: capitalize;
+		margin-bottom: 10px;
+		display: block;
+		color: #006AB3;
+	}
 }
