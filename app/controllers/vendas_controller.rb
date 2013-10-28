@@ -98,6 +98,7 @@ class VendasController < ApplicationController
           @estoque.update_attributes(:quantidade_estoque => @quantidade_final, :produto_id => @estoque.produto_id)
         end
 
+      File.rename("public/tmp_lista.txt", "public/lista.txt")
       session[:cart] = {}
 
       end
