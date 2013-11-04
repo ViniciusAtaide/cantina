@@ -7,8 +7,7 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700">
   <%= csrf_meta_tags %>
 </head>
-<body>
-
+<body ng-app="cantina">
 	   <header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
 	        <div class="navbar-header">
 	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -25,7 +24,7 @@
 	                    <a href="/painel/profile" title="Olá, Luis">Olá, Luis</a>
 	                </li>
 	                <li>
-	                    <a href="/vendas" title="Ir para Vendas" >Ir para Vendas</a>
+	                    <a href="/vendas" title="Ir para Vendas">Ir para Vendas</a>
 	                </li>
 	                <li>
 	                    <a href="/painel/logout" title="Sair"><span class="glyphicon glyphicon-off"></span></a>
@@ -57,18 +56,9 @@
 				</ul>
 			</nav>
 		</aside>
-
 		<div class="content col-md-10">
-
 		<p id="notice"> <%= notice %> </p>
-
 			<%= yield %>
-
-
-
 		</div>
-
-
-
 </body>
 </html>

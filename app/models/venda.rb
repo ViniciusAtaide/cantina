@@ -13,5 +13,9 @@ class Venda < ActiveRecord::Base
   	arquivo.puts 'nome: Paulo'
   	arquivo.close
   end
+
+  def vendas_do_dia
+    return Venda
+  end
   
 end

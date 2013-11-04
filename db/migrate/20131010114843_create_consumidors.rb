@@ -3,7 +3,7 @@ class CreateConsumidors < ActiveRecord::Migration
     create_table :consumidors do |t|
       t.string :tipo
       t.string :operacao
-      t.decimal :saldo, :precision => 10, :scale => 2
+      t.decimal :saldo, :precision => 10, :scale => 2, :default => 0
       t.string :nome
       t.string :cpf
       t.string :email

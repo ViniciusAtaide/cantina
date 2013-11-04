@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if session[:cart] == {}
       File.open("public/tmp_lista.txt", "a+") do |f|
         arquivo = IO.readlines("public/tmp_lista.txt")
-        cabecalho = "Produto" + "    " + "Preço" + "\n"
+        cabecalho = "Produto" + "    " + "Preço" + "    " + "Qtd" + "\n"
         if arquivo[0] == cabecalho
           return false
         else

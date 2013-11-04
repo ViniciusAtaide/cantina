@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131015231835) do
+ActiveRecord::Schema.define(:version => 20131014192410) do
 
   create_table "categoria", :force => true do |t|
     t.string   "nome"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(:version => 20131015231835) do
   create_table "estoques", :force => true do |t|
     t.integer  "quantidade_estoque"
     t.integer  "quantidade_min"
-    t.decimal  "preco_compra",       :precision => 10, :scale => 0
-    t.decimal  "custo_medio",        :precision => 10, :scale => 0
+    t.decimal  "preco_compra"
+    t.decimal  "custo_medio"
     t.integer  "produto_id"
     t.integer  "fornecedor_id"
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_index "estoques", ["fornecedor_id"], :name => "index_estoques_on_fornecedor_id"
@@ -52,23 +52,14 @@ ActiveRecord::Schema.define(:version => 20131015231835) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "items", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "produtos", :force => true do |t|
     t.string   "nome"
     t.text     "descricao"
     t.string   "unidade_medida"
-    t.decimal  "preco_venda",       :precision => 10, :scale => 2
+    t.decimal  "preco_venda",    :precision => 10, :scale => 2
     t.integer  "categoria_id"
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
-    t.string   "foto_file_name"
-    t.string   "foto_content_type"
-    t.integer  "foto_file_size"
-    t.datetime "foto_updated_at"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "produtos", ["categoria_id"], :name => "index_produtos_on_categoria_id"

@@ -1,4 +1,4 @@
-<%= form_for(@consumidor) do |f| %>
+<%= form_for @consumidor , :html => { :name => "consumidors", data: { :novalidate => "", :"ng-controller" => "formValidator",  } } do |f| %>
   <% if @consumidor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@consumidor.errors.count, "error") %> prohibited this consumidor from being saved:</h2>
@@ -19,11 +19,11 @@
     </div>
 
     <div class="col-md-3 col-sm-3">
-      <%= link_to 'Cancelar', consumidors_path, :class => "btn btn-block btn-danger" %>
+      <%= link_to "Cancelar", consumidors_path, :class => "btn btn-block btn-danger" %>
     </div>
 
     <div class="col-md-3 col-sm-3">
-        <%= f.submit :class => "btn btn-block btn-success" %>
+        <%= f.submit :class => "btn btn-block btn-success", :data => {"ng-disabled" => "consumidors.$valid"} %>
     </div>
 
     </div>
@@ -31,34 +31,41 @@
 
   <div class="form-group required">
     <%= f.label "Tipo:" %><br />
-    <%= f.select :tipo, ['aluno', 'funcionario', 'professor'], :class => "form-control" %>
+    <%= f.select :tipo, ["aluno", "funcionario", "professor"], :class => "form-control" %> 
   </div>
   <div class="form-group required">
     <%= f.label "Operacao:" %><br />
-    <%= f.select :operacao, ['pre', 'pos', 'prepos'], :class => "form-control" %>
+    <%= f.select :operacao, ["pre", "pos", "prepos"], :class => "form-control" %>
   </div>
   <div class="form-group required">
     <%= f.label "Saldo a ser creditado:" %><br />
-    <%= f.text_field :saldo, :placehold => "0", :class => "form-control" %>
+    <%= f.text_field :saldo, :placeholder => "0", :class => "form-control", :data => {"ng-required" => ""} %>
+    <span class="alert-message" ng-show="consumidors.consumidor_saldo.$error.required">Campo Obrigatório</span>
   </div>
   <div class="form-group required">
     <%= f.label "Nome:" %><br />
-    <%= f.text_field :nome, :class => "form-control" %>
+    <%= f.text_field :nome, :class => "form-control", :data => { "ng-required" => "" } %>
+    <span class="alert-message" ng-show="consumidors.consumidor_nome.$error.required">Campo Obrigatório</span>    
   </div>
   <div class="form-group required">
     <%= f.label "Cpf:" %><br />
-    <%= f.text_field :cpf, :class => "form-control" %>
+    <%= f.text_field :cpf, :class => "form-control", :data => { "ng-required" => "", "ui-mask" => "999.999.999-99", :"ng-model" => "cpf" } %>
+    <span class="alert-message" ng-show="consumidors.consumidor_cpf.$error.required">Campo Obrigatório</span>    
+    <span class="alert-message" ng-show="consumidors.consumidor_cpf.$error.cpf">Digite um CPF Valido</span>    
   </div>
   <div class="form-group required">
     <%= f.label "Email:" %><br />
-    <%= f.text_field :email, :class => "form-control" %>
+    <%= f.text_field :email, :class => "form-control", :type => "email", :data => { "ng-required" => "" } %>
+    <span class="alert-message" ng-show="consumidors.consumidor_email.$error.required">Campo Obrigatório</span>        
+    <span class="alert-message" ng-show="consumidors.consumidor_email.$error.email">Digite um email válido</span>        
   </div>
   <div class="form-group required">
     <%= f.label "Telefone:" %><br />
-    <%= f.text_field :telefone, :class => "form-control" %>
+    <%= f.text_field :telefone, :class => "form-control", :data => { "ng-required" => "" , "ui-mask" => "(99) 9999-9999", :"ng-model" => "telefone" } %>
+    <span class="alert-message" ng-show="consumidors.consumidor_cpf.$error.required">Campo Obrigatório</span>        
   </div>
   <div class="form-group required">
     <%= f.label "Observacao:" %><br />
-    <%= f.text_area :observacao, :rows => "2", :class => "form-control" %>
+    <%= f.text_area :observacao, :rows => "2", :class => "form-control", :data => { "ng-required" => "" } %>
   </div>
 <% end %>

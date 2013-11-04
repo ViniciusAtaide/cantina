@@ -1,2 +1,1 @@
-Coxinha     2,50
-Produto    Preço
+Produto    Preço    Qtd

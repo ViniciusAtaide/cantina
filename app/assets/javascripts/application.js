@@ -14,11 +14,14 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
+//= require angular
+//= require angularui
+//= require bootstrap
 //= require_tree .
-//= require bootstrap-select
+
 
  
- var ready = jQuery('#finalizar').click(function() {	
+ var ready = $('#finalizar').click(function() {
 	link = $('#finalizar').attr('href');
 	if($('#consumidor').val() == ''){
 		link = link+'&consumidor='+"1";
@@ -34,7 +37,6 @@
 
 	return true;
 });
-
 
 
 /*
