@@ -8,6 +8,8 @@ class Estoque < ActiveRecord::Base
   has_many :produtos
   has_many :consumidors
 
+  validates_presence_of :custo_medio, :fornecedor_id, :preco_compra, :produto_id, :quantidade_estoque, :quantidade_min
+
   def custo_medio
   	self.quantidade_estoque * self.produto.preco_venda
   end

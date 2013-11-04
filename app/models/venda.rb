@@ -1,6 +1,8 @@
 class Venda < ActiveRecord::Base
   attr_accessible :quantidade_venda, :valor_total, :consumidor_id, :produto_id
 
+  validates_presence_of :quantidade_venda, :valor_total, :consumidor_id, :produto_id
+
   belongs_to :produto
   belongs_to :estoque
   belongs_to :consumidor
@@ -14,8 +16,10 @@ class Venda < ActiveRecord::Base
   	arquivo.close
   end
 
-  def vendas_do_dia
-    return Venda
+
+  def get_vendas_do_dia
+    Venda.where :created_at => Date.today
   end
-  
+
+
 end

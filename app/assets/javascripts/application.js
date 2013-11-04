@@ -14,12 +14,8 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
-//= require angular
-//= require angularui
 //= require bootstrap
 //= require_tree .
-
-
  
  var ready = $('#finalizar').click(function() {
 	link = $('#finalizar').attr('href');

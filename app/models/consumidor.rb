@@ -4,4 +4,5 @@ class Consumidor < ActiveRecord::Base
   belongs_to :venda
   has_one :venda
   
+  validates_presence_of :cpf, :email, :nome, :telefone, :tipo
 end

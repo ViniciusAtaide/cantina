@@ -1,9 +1,8 @@
 <%= form_for(@consumidor) do |f| %>
   <% if @consumidor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@consumidor.errors.count, "error") %> prohibited this consumidor from being saved:</h2>
-
-      <ul>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <a href="#" class="pull-right" data-dismiss="alert">&times;</a>
+      <ul class="list-unstyled">
       <% @consumidor.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
